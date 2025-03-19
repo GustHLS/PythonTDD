@@ -6,6 +6,25 @@ from codigo.bytebank import Funcionario
 from pytest import mark
 
 class TestClass:
+
+    def test_retorna_nome(self):
+        entrada = 'Gustavo Henrique'
+        esperado = 'Gustavo Henrique'
+        gustavo = Funcionario(entrada, '11/11/2000', 1111)
+        resultado = gustavo.nome
+
+        assert resultado == esperado
+
+    def test_retorna_se_eh_socio(self):
+        entrada_salario = 100000
+        entrada_nome = 'Paulo Bragança'
+        esperado = True
+
+        funcionario_teste = Funcionario(entrada_nome, '11/11/2000', entrada_salario)
+        resultado = funcionario_teste._eh_socio()
+
+        assert resultado == esperado
+
     def test_quando_idade_recebe_13_03_2000_deve_retornar_23(self):
         # Given-Contexto
         entrada = '13/03/2000'
